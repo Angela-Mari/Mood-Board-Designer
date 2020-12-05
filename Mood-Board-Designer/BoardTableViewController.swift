@@ -6,13 +6,46 @@
 //
 
 import UIKit
+import CoreData
 
 class BoardTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet var tableView: UITableView!
     var boards = [Board]() // Collection of boards (data set)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadBoards()
+    }
+    
+    func saveBoards() {
+        // we want to save the context "to disk" (db)
+        do {
+            try context.save() // like git commit
+        }
+        catch {
+            print("Error saving Boards \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    /**
+        Read of CRUD, loads boards from disk
+     */
+    func loadBoards() {
+        // we need to make a "request" to get the Category objects
+        // via the persistent container
+        let request: NSFetchRequest<Board> = Board.fetchRequest()
+        // with a sql SELECT statement we usually specify a WHERE clause if we want to filter rows from the table we are selecting from
+        // if we want to filter, we need to add a "predicate" to our request... we will do this later for Items
+        do {
+            boards = try context.fetch(request)
+        }
+        catch {
+            print("Error loading Boards \(error)")
+        }
+        tableView.reloadData()
     }
     
     /**
@@ -37,19 +70,42 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
      returns - the desired cell
     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Get a refrerence to an object of type BoardTableViewCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
-        let board = boards[indexPath.row]
+        let row = indexPath.row
+        let board = boards[row]
         
-        // Save Boards values in a Board
-        // For BoardTableViewCell formatting
-        let boardName = Board(name: board.name)
-        cell.update(with: boardName)
+        // now we need a DogTableViewCell!!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
+        // we don't need to create a "new cell" for each our dogs and here is why
+        // lets say there are 10000 dogs in our dogs array
+        // we don't need 100000 cells because there won't be 10000 cells display at one time in our table view
+        
+        cell.update(with: board)
+        
+        cell.showsReorderControl = true
         
         return cell
     }
     
+    
     // Edit mode (rearrange and delete) (navigation bar)????
     // Add a new board (navigation bar)
+    @IBAction func unwindToInitialVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            if identifier == "saveUnwind" {
+                print("saveUnwind")
+                if let addBoard =
+                    segue.source as? Layout1ViewController {
+                    if let board = addBoard.boardOptional {
+                        print("back in boardTableVC")
+                        print(board)
+                        boards.append(board)
+                        saveBoards()
+                    }
+                    tableView.reloadData()
+                }
+            }
+        }
+        
+    }
     
 }
