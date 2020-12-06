@@ -13,8 +13,10 @@
 		9C86896F25741E860065799B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C86896D25741E860065799B /* Main.storyboard */; };
 		9C86897125741E890065799B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C86897025741E890065799B /* Assets.xcassets */; };
 		9C86897425741E890065799B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C86897225741E890065799B /* LaunchScreen.storyboard */; };
+		9C9D5474257C322200E29563 /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */; };
+		9C9D5475257C322200E29563 /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */; };
+		9CCC2DD1257C2C8D0000998A /* MoodModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */; };
 		C249A549257970E6001D9C92 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A548257970E6001D9C92 /* BoardTableViewCell.swift */; };
-		C249A54C2579771B001D9C92 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A54B2579771B001D9C92 /* Board.swift */; };
 		C249A54F25797E61001D9C92 /* ChooseBoardLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */; };
 		C249A5522579811A001D9C92 /* Layout1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A5512579811A001D9C92 /* Layout1ViewController.swift */; };
 		C249A55525798135001D9C92 /* Layout2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A55425798135001D9C92 /* Layout2ViewController.swift */; };
@@ -29,8 +31,10 @@
 		9C86897025741E890065799B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C86897325741E890065799B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C86897525741E890065799B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodModel.xcdatamodel; sourceTree = "<group>"; };
 		C249A548257970E6001D9C92 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
-		C249A54B2579771B001D9C92 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBoardLayoutViewController.swift; sourceTree = "<group>"; };
 		C249A5512579811A001D9C92 /* Layout1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout1ViewController.swift; sourceTree = "<group>"; };
 		C249A55425798135001D9C92 /* Layout2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout2ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		9C86896625741E860065799B /* Mood-Board-Designer */ = {
 			isa = PBXGroup;
 			children = (
+				9C9D546E257C305800E29563 /* Core Data */,
 				9C86896725741E860065799B /* AppDelegate.swift */,
 				9C86896925741E860065799B /* SceneDelegate.swift */,
 				9C86896B25741E860065799B /* BoardTableViewController.swift */,
@@ -74,12 +79,21 @@
 				9C86897225741E890065799B /* LaunchScreen.storyboard */,
 				9C86897525741E890065799B /* Info.plist */,
 				C249A548257970E6001D9C92 /* BoardTableViewCell.swift */,
-				C249A54B2579771B001D9C92 /* Board.swift */,
 				C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */,
 				C249A5512579811A001D9C92 /* Layout1ViewController.swift */,
 				C249A55425798135001D9C92 /* Layout2ViewController.swift */,
 			);
 			path = "Mood-Board-Designer";
+			sourceTree = "<group>";
+		};
+		9C9D546E257C305800E29563 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */,
+				9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */,
+				9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C9D5474257C322200E29563 /* Board+CoreDataClass.swift in Sources */,
 				C249A5522579811A001D9C92 /* Layout1ViewController.swift in Sources */,
 				C249A54F25797E61001D9C92 /* ChooseBoardLayoutViewController.swift in Sources */,
 				9C86896C25741E860065799B /* BoardTableViewController.swift in Sources */,
 				9C86896825741E860065799B /* AppDelegate.swift in Sources */,
-				C249A54C2579771B001D9C92 /* Board.swift in Sources */,
+				9C9D5475257C322200E29563 /* Board+CoreDataProperties.swift in Sources */,
+				9CCC2DD1257C2C8D0000998A /* MoodModel.xcdatamodeld in Sources */,
 				C249A55525798135001D9C92 /* Layout2ViewController.swift in Sources */,
 				C249A549257970E6001D9C92 /* BoardTableViewCell.swift in Sources */,
 				9C86896A25741E860065799B /* SceneDelegate.swift in Sources */,
@@ -359,6 +375,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */,
+			);
+			currentVersion = 9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */;
+			path = MoodModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9C86895C25741E860065799B /* Project object */;
 }

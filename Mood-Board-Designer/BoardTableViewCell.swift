@@ -30,6 +30,6 @@ class BoardTableViewCell: UITableViewCell {
      parameters - board: the Board being displayed in a given cell
     */
     func update(with board: Board) {
-        nameLabel.text = board.name
+        nameLabel.text = board.title
     }
 }
