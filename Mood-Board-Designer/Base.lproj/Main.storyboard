@@ -131,14 +131,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59f-HU-hAJ">
-                                <rect key="frame" x="170" y="103" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="42s-Lv-vh5" eventType="touchUpInside" id="aPG-mg-FPZ"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-eO-aol">
                                 <rect key="frame" x="16" y="65" width="310" height="34"/>
                                 <subviews>
@@ -155,6 +147,43 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="od6-Es-piF" customClass="YTPlayerView">
+                                <rect key="frame" x="37" y="186" width="300" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-BI-Aev">
+                                <rect key="frame" x="16" y="107" width="321.5" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube Video:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiX-F9-w7E">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a YouTube URL here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pes-HJ-8d8">
+                                        <rect key="frame" x="126" y="0.0" width="195.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIb-Nm-ik0">
+                                <rect key="frame" x="61" y="148" width="252" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click Here to Preview Video in Player"/>
+                                <connections>
+                                    <action selector="viewInPlayerButton:" destination="42s-Lv-vh5" eventType="touchUpInside" id="mX6-2V-5k5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59f-HU-hAJ">
+                                <rect key="frame" x="170" y="392" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="42s-Lv-vh5" eventType="touchUpInside" id="aPG-mg-FPZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pNf-Uv-jWG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,11 +191,13 @@
                     <navigationItem key="navigationItem" id="Nsn-b6-dTa"/>
                     <connections>
                         <outlet property="nameTextField" destination="ph4-0f-gJu" id="HFy-S4-bcu"/>
+                        <outlet property="urlTextField" destination="Pes-HJ-8d8" id="biB-TT-l6s"/>
+                        <outlet property="videoPreview" destination="od6-Es-piF" id="NB8-lO-j6w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5W-yQ-ZvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2745" y="-224"/>
+            <point key="canvasLocation" x="2744.8000000000002" y="-224.4377811094453"/>
         </scene>
         <!--Layout2 View Controller-->
         <scene sceneID="E8u-4X-0Ok">
@@ -192,8 +223,38 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfT-Sc-6k1" customClass="YTPlayerView">
+                                <rect key="frame" x="37" y="191" width="300" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mjg-yB-hIS">
+                                <rect key="frame" x="11" y="118" width="321.5" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube Video:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acc-gZ-kvk">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a YouTube URL here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfa-1O-9gh">
+                                        <rect key="frame" x="126" y="0.0" width="195.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUX-Gy-TMg">
+                                <rect key="frame" x="56" y="159" width="252" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click Here to Preview Video in Player"/>
+                                <connections>
+                                    <action selector="viewInPlayerButton:" destination="42s-Lv-vh5" eventType="touchUpInside" id="5as-xD-bGe"/>
+                                    <action selector="viewInPlayerButton:" destination="yeU-RK-0r4" eventType="touchUpInside" id="IDH-Zm-kbp"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDG-k7-DuE">
-                                <rect key="frame" x="170" y="131" width="34" height="30"/>
+                                <rect key="frame" x="154" y="410" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -207,6 +268,8 @@
                     <navigationItem key="navigationItem" id="CHA-Ii-NjG"/>
                     <connections>
                         <outlet property="nameTextField" destination="REa-ap-8BI" id="bIe-oi-cME"/>
+                        <outlet property="urlTextField" destination="bfa-1O-9gh" id="F9W-Gg-aQE"/>
+                        <outlet property="videoPreview" destination="OfT-Sc-6k1" id="vhF-FN-J1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZG-Ki-S6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

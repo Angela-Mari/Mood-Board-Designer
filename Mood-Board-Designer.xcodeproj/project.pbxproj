@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8570DC19C5542E789280254A /* Pods_Mood_Board_Designer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79248B958C99101CA218229B /* Pods_Mood_Board_Designer.framework */; };
 		9C86896825741E860065799B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896725741E860065799B /* AppDelegate.swift */; };
 		9C86896A25741E860065799B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896925741E860065799B /* SceneDelegate.swift */; };
 		9C86896C25741E860065799B /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896B25741E860065799B /* BoardTableViewController.swift */; };
@@ -21,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		259D6A9B07C4264187455DA0 /* Pods-Mood-Board-Designer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mood-Board-Designer.release.xcconfig"; path = "Target Support Files/Pods-Mood-Board-Designer/Pods-Mood-Board-Designer.release.xcconfig"; sourceTree = "<group>"; };
+		5EFD19A5C086F25D04BC8E62 /* Pods-Mood-Board-Designer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mood-Board-Designer.debug.xcconfig"; path = "Target Support Files/Pods-Mood-Board-Designer/Pods-Mood-Board-Designer.debug.xcconfig"; sourceTree = "<group>"; };
+		79248B958C99101CA218229B /* Pods_Mood_Board_Designer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mood_Board_Designer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C86896425741E860065799B /* Mood-Board-Designer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood-Board-Designer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C86896725741E860065799B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C86896925741E860065799B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8570DC19C5542E789280254A /* Pods_Mood_Board_Designer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E1DB3DF28D9E30A1D81D736 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79248B958C99101CA218229B /* Pods_Mood_Board_Designer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9C86895B25741E860065799B = {
 			isa = PBXGroup;
 			children = (
 				9C86896625741E860065799B /* Mood-Board-Designer */,
 				9C86896525741E860065799B /* Products */,
+				F1625DC345BBC46B44B0037B /* Pods */,
+				5E1DB3DF28D9E30A1D81D736 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +97,16 @@
 			path = "Mood-Board-Designer";
 			sourceTree = "<group>";
 		};
+		F1625DC345BBC46B44B0037B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EFD19A5C086F25D04BC8E62 /* Pods-Mood-Board-Designer.debug.xcconfig */,
+				259D6A9B07C4264187455DA0 /* Pods-Mood-Board-Designer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C86897825741E890065799B /* Build configuration list for PBXNativeTarget "Mood-Board-Designer" */;
 			buildPhases = (
+				54EA905FACB7F55350ED553A /* [CP] Check Pods Manifest.lock */,
 				9C86896025741E860065799B /* Sources */,
 				9C86896125741E860065799B /* Frameworks */,
 				9C86896225741E860065799B /* Resources */,
+				F1542BB936B4F029400A3C47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54EA905FACB7F55350ED553A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mood-Board-Designer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1542BB936B4F029400A3C47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mood-Board-Designer/Pods-Mood-Board-Designer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mood-Board-Designer/Pods-Mood-Board-Designer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mood-Board-Designer/Pods-Mood-Board-Designer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C86896025741E860065799B /* Sources */ = {
@@ -303,6 +372,7 @@
 		};
 		9C86897925741E890065799B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EFD19A5C086F25D04BC8E62 /* Pods-Mood-Board-Designer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +391,7 @@
 		};
 		9C86897A25741E890065799B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 259D6A9B07C4264187455DA0 /* Pods-Mood-Board-Designer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -1,0 +1,6 @@
+framework module Pods_Mood_Board_Designer {
+  umbrella header "Pods-Mood-Board-Designer-umbrella.h"
+
+  export *
+  module * { export * }
+}
