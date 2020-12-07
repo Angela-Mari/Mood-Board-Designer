@@ -21,14 +21,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardCell" id="SXx-3q-M5z" customClass="BoardTableViewCell" customModule="Mood_Board_Designer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="367" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="367" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXx-3q-M5z" id="vme-TJ-7C7">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-yo-ikp">
-                                                    <rect key="frame" x="4" y="4" width="359" height="33.5"/>
+                                                    <rect key="frame" x="4" y="4" width="359" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Layout 1"/>
                                         <connections>
-                                            <segue destination="42s-Lv-vh5" kind="show" identifier="Layout1Segue" id="Jg3-26-Tnu"/>
+                                            <segue destination="RXT-bn-1Uy" kind="show" id="OMF-Ve-OLQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-O0-q3g">
@@ -102,7 +102,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Layout 2"/>
                                         <connections>
-                                            <segue destination="yeU-RK-0r4" kind="show" identifier="Layout2Segue" id="Rkx-Np-Prx"/>
+                                            <segue destination="RXT-bn-1Uy" kind="show" id="ugx-hJ-HAd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -121,97 +121,146 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqd-0v-vIS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1849" y="-224"/>
+            <point key="canvasLocation" x="1838" y="124"/>
         </scene>
-        <!--Layout1 View Controller-->
-        <scene sceneID="ddC-Dd-A1e">
+        <!--Edit Layout View Controller-->
+        <scene sceneID="qdO-6W-y92">
             <objects>
-                <viewController id="42s-Lv-vh5" customClass="Layout1ViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ubz-P0-s6B">
+                <viewController id="RXT-bn-1Uy" customClass="EditLayoutViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f0O-Gm-22P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59f-HU-hAJ">
-                                <rect key="frame" x="170" y="103" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="42s-Lv-vh5" eventType="touchUpInside" id="aPG-mg-FPZ"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-eO-aol">
-                                <rect key="frame" x="16" y="65" width="310" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-oW-7bC">
+                                <rect key="frame" x="16" y="118" width="310" height="34"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzn-Il-JXk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysT-d5-4kf">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a board name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ph4-0f-gJu">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a board name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUU-cW-Mbr">
                                         <rect key="frame" x="123" y="0.0" width="187" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="pNf-Uv-jWG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Nsn-b6-dTa"/>
-                    <connections>
-                        <outlet property="nameTextField" destination="ph4-0f-gJu" id="HFy-S4-bcu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i5W-yQ-ZvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2745" y="-224"/>
-        </scene>
-        <!--Layout2 View Controller-->
-        <scene sceneID="E8u-4X-0Ok">
-            <objects>
-                <viewController id="yeU-RK-0r4" customClass="Layout2ViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="t0a-pq-aZK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-Oi-E0j">
-                                <rect key="frame" x="16" y="70" width="310" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Images:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-Mc-hGL">
+                                <rect key="frame" x="17" y="175" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-7S-8eT">
+                                <rect key="frame" x="16" y="204" width="347" height="316"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFz-HA-rhe">
-                                        <rect key="frame" x="0.0" y="0.0" width="99" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a board name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REa-ap-8BI">
-                                        <rect key="frame" x="123" y="0.0" width="187" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="lPQ-yj-4SK">
+                                        <rect key="frame" x="0.0" y="0.0" width="347" height="155"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-nS-kRv">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="155"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdR-dc-80T">
+                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="22"/>
+                                                        <state key="normal" title="Photo1" image="camera" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="photo1Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="tP9-E1-BfY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXx-oV-icY">
+                                                        <rect key="frame" x="0.0" y="27" width="170" height="128"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-ls-TAL">
+                                                <rect key="frame" x="177" y="0.0" width="170" height="155"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="go1-cy-gmS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="23"/>
+                                                        <state key="normal" title="Photo2" image="camera" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="photo2Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="qdg-Mu-75u"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0nV-X0-vbd">
+                                                        <rect key="frame" x="0.0" y="27" width="170" height="128"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-sI-NM7">
+                                        <rect key="frame" x="0.0" y="162" width="347" height="154"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uD2-jO-9oT">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="154"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PQ-VC-Zny">
+                                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="22"/>
+                                                        <state key="normal" title="Photo3" image="camera" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="photo3Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="bdt-rH-7Mp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQC-aB-Xuh">
+                                                        <rect key="frame" x="0.0" y="26" width="170" height="128"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-VT-0tV">
+                                                <rect key="frame" x="177" y="0.0" width="170" height="154"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwm-PT-bxw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="23"/>
+                                                        <state key="normal" title="Photo4" image="camera" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="photoButton4:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="9fK-eV-5VZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Hk-Vg5">
+                                                        <rect key="frame" x="0.0" y="26" width="170" height="128"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDG-k7-DuE">
-                                <rect key="frame" x="170" y="131" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-3i-3tE">
+                                <rect key="frame" x="171" y="605" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="saveButton:" destination="yeU-RK-0r4" eventType="touchUpInside" id="SWF-CO-RuY"/>
+                                    <action selector="saveButton:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="G6J-M9-OXS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Layout: Layout #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zce-TT-GpX">
+                                <rect key="frame" x="124" y="68" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vdA-5d-w99"/>
+                        <viewLayoutGuide key="safeArea" id="np4-s8-xfI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CHA-Ii-NjG"/>
+                    <navigationItem key="navigationItem" id="YNd-6l-Jpu"/>
                     <connections>
-                        <outlet property="nameTextField" destination="REa-ap-8BI" id="bIe-oi-cME"/>
+                        <outlet property="boardNameTextField" destination="WUU-cW-Mbr" id="dg1-vm-bcC"/>
+                        <outlet property="layoutNumberLabel" destination="Zce-TT-GpX" id="amW-MV-h9V"/>
+                        <outlet property="photo1ImageView" destination="HXx-oV-icY" id="cdt-en-OeI"/>
+                        <outlet property="photo2ImageView" destination="0nV-X0-vbd" id="t1q-m1-6q6"/>
+                        <outlet property="photo3ImageView" destination="UQC-aB-Xuh" id="qr0-P5-opQ"/>
+                        <outlet property="photo4ImageView" destination="e3R-Hk-Vg5" id="Kg8-Ve-IY2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rZG-Ki-S6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eC-lD-byM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225" y="545"/>
+            <point key="canvasLocation" x="2572" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Shk-hl-X9o">
@@ -232,7 +281,11 @@
             <point key="canvasLocation" x="136.80000000000001" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ugx-hJ-HAd"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
