@@ -3,13 +3,14 @@
 //  Mood-Board-Designer
 //
 //  Created by Elizabeth Larson on 12/7/20.
-//
+
+//  Sources:
 //      Camera/Photo Alert handling: https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1465002990 (pp. 682-687)
 //      writeImage() help: https://cocoacasts.com/fm-2-how-to-store-an-image-in-the-documents-directory-in-swift
 
 import UIKit
 
-class AddLayoutViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var boardOptional: Board? = nil
     var layoutNumber: Int = 0
     var imageLocation1 = ""
@@ -237,6 +238,25 @@ class AddLayoutViewController: UIViewController, UITextFieldDelegate, UIImagePic
             // TODO: alert them that it's invalid input
         }
     }
+    
+    // MARK: - Segues
+    // Copied from main branch's unwinding + core data
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            if let identifier = segue.identifier {
+                if identifier == "saveUnwind" {
+                    let newBoard = Board(context: self.context)
+                    newBoard.title = myTitle
+    //                newTrip.startDate = myStartDate
+    //                newTrip.endDate = myEndDate
+    //                myImageName = writeImage()
+    //                newTrip.imageFileName = myImageName
+                    boardOptional = newBoard
+                    print("in layout one")
+                    //print(boardOptional)
+                }
+            }
+        }*/
     
     // MARK: - Keyboard Actions
     

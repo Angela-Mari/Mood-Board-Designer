@@ -54,6 +54,74 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // Edit mode (rearrange and delete) (navigation bar)????
-    // Add a new board (navigation bar)
+    
+    // MARK: - Segues
+    
+    /**
+     Perform a segue to either the detail or layout choosing page, sending information with it
+     
+     parameters - segue: the segue being performed
+               sender: may or may not be triggered
+    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "DetailSegue" {
+                // TODO: Implement (and switch it from PA6/7 to this project :) )
+                /*if let tripDetailVC = segue.destination as? TripDetailViewController {
+                    // Get the indexPath for the row the user clicked on
+                    // Get the trip at that row
+                    // Pass the trip into detailDetailVC
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        let trip = trips[indexPath.row]
+                        tripDetailVC.tripOptional = trip
+                        tripDetailVC.tripNumber = indexPath[1] + 1
+                        tripDetailVC.totalNumTrips = trips.count
+                    }
+                }*/
+            }
+            else if identifier == "AddSegue" {
+                if let chooseBoardLayoutVC = segue.destination as? ChooseBoardLayoutViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        tableView.deselectRow(at: indexPath, animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     Segue back to the main screen when the save button is pressed on the add screen
+     Add the new trip to the data source
+     
+     parameters - segue: the segue being performed
+    */
+    /*@IBAction func unwindToTripTableViewController(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            if identifier == "SaveUnwindSegue" {
+                if let tripDetailVC = segue.source as? AddTripViewController {
+                    if let trip = tripDetailVC.tripOptional {
+                        // Get the currently selected index path
+                        if let indexPath = tableView.indexPathForSelectedRow {
+                            // Not needed for this, but can be used if we wanted to edit details
+                            //trips[indexPath.row] = trip
+                        }
+                        else { // Unwinding from an AddSegue
+                            // Add the new trip to the trips array
+                            // Make a Trip using context
+                            let newTrip = Trip(context: self.context)
+                            newTrip.destinationName = trip.destinationName
+                            newTrip.startDate = trip.startDate
+                            newTrip.endDate = trip.endDate
+                            newTrip.imageFileName = trip.imageFileName
+                            trips.append(newTrip)
+                        }
+                        // Force update the table view
+                        //tableView.reloadData()
+                        self.saveTrips()
+                    }
+                }
+            }
+        }
+    }*/
     
 }

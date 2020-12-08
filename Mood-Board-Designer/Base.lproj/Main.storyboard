@@ -21,14 +21,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardCell" id="SXx-3q-M5z" customClass="BoardTableViewCell" customModule="Mood_Board_Designer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="367" height="41"/>
+                                        <rect key="frame" x="0.0" y="28" width="367" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXx-3q-M5z" id="vme-TJ-7C7">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-yo-ikp">
-                                                    <rect key="frame" x="4" y="4" width="359" height="33"/>
+                                                    <rect key="frame" x="4" y="4" width="359" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Layout 1"/>
                                         <connections>
-                                            <segue destination="RXT-bn-1Uy" kind="show" id="OMF-Ve-OLQ"/>
+                                            <segue destination="RXT-bn-1Uy" kind="show" identifier="Layout1Segue" id="OMF-Ve-OLQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-O0-q3g">
@@ -102,7 +102,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Layout 2"/>
                                         <connections>
-                                            <segue destination="RXT-bn-1Uy" kind="show" id="ugx-hJ-HAd"/>
+                                            <segue destination="RXT-bn-1Uy" kind="show" identifier="Layout2Segue" id="ugx-hJ-HAd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="1838" y="124"/>
         </scene>
-        <!--Edit Layout View Controller-->
+        <!--Add Board View Controller-->
         <scene sceneID="qdO-6W-y92">
             <objects>
-                <viewController id="RXT-bn-1Uy" customClass="EditLayoutViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RXT-bn-1Uy" customClass="AddBoardViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f0O-Gm-22P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +144,9 @@
                                         <rect key="frame" x="123" y="0.0" width="187" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="boardNameTextField:" destination="RXT-bn-1Uy" eventType="editingDidEnd" id="DP1-w6-aQg"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
