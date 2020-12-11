@@ -10,6 +10,7 @@ import UIKit
 class BoardTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var boards = [Board]() // Collection of boards (data set)
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,33 +96,22 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
      
      parameters - segue: the segue being performed
     */
-    /*@IBAction func unwindToTripTableViewController(segue: UIStoryboardSegue) {
+    // Found in the file with this same name on the main branch
+   /* @IBAction func unwindToTripTableViewController(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
-            if identifier == "SaveUnwindSegue" {
-                if let tripDetailVC = segue.source as? AddTripViewController {
-                    if let trip = tripDetailVC.tripOptional {
-                        // Get the currently selected index path
-                        if let indexPath = tableView.indexPathForSelectedRow {
-                            // Not needed for this, but can be used if we wanted to edit details
-                            //trips[indexPath.row] = trip
-                        }
-                        else { // Unwinding from an AddSegue
-                            // Add the new trip to the trips array
-                            // Make a Trip using context
-                            let newTrip = Trip(context: self.context)
-                            newTrip.destinationName = trip.destinationName
-                            newTrip.startDate = trip.startDate
-                            newTrip.endDate = trip.endDate
-                            newTrip.imageFileName = trip.imageFileName
-                            trips.append(newTrip)
-                        }
-                        // Force update the table view
-                        //tableView.reloadData()
-                        self.saveTrips()
+            if identifier == "saveUnwind" {
+                print("saveUnwind")
+                if let addBoard =
+                    segue.source as? Layout1ViewController {
+                    if let board = addBoard.boardOptional {
+                        print("back in boardTableVC")
+                        print(board)
+                        boards.append(board)
+                        saveBoards()
                     }
+                    tableView.reloadData()
                 }
             }
         }
     }*/
-    
 }

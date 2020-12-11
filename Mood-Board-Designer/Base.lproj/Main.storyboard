@@ -21,14 +21,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardCell" id="SXx-3q-M5z" customClass="BoardTableViewCell" customModule="Mood_Board_Designer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="367" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="367" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXx-3q-M5z" id="vme-TJ-7C7">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-yo-ikp">
-                                                    <rect key="frame" x="4" y="4" width="359" height="33.5"/>
+                                                    <rect key="frame" x="4" y="4" width="359" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -146,6 +146,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="boardNameTextField:" destination="RXT-bn-1Uy" eventType="editingDidEnd" id="DP1-w6-aQg"/>
+                                            <action selector="inputTitle:" destination="RXT-bn-1Uy" eventType="editingDidEnd" id="zpy-Ws-FsG"/>
                                         </connections>
                                     </textField>
                                 </subviews>

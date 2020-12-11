@@ -9,10 +9,14 @@
 //      writeImage() help: https://cocoacasts.com/fm-2-how-to-store-an-image-in-the-documents-directory-in-swift
 
 import UIKit
+//import CoreData
 
 class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var boardOptional: Board? = nil
     var layoutNumber: Int = 0
+    var boardName: String = ""
     var imageLocation1 = ""
     var imageLocation2 = ""
     var imageLocation3 = ""
@@ -31,6 +35,14 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     // MARK: - Board Name
     @IBOutlet var boardNameTextField: UITextField!
+    @IBAction func inputTitle(_ sender: UITextField) {
+        guard let inputTitle = boardNameTextField.text, inputTitle != "" else {
+            print("Bad input")
+            return
+        }
+        print("Title recieved!")
+        boardName = inputTitle
+    }
     
     // MARK: - Camera and Photos
     @IBOutlet var photo1ImageView: UIImageView!
@@ -241,22 +253,18 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     // MARK: - Segues
     // Copied from main branch's unwinding + core data
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
-            if let identifier = segue.identifier {
-                if identifier == "saveUnwind" {
-                    let newBoard = Board(context: self.context)
-                    newBoard.title = myTitle
-    //                newTrip.startDate = myStartDate
-    //                newTrip.endDate = myEndDate
-    //                myImageName = writeImage()
-    //                newTrip.imageFileName = myImageName
-                    boardOptional = newBoard
-                    print("in layout one")
-                    //print(boardOptional)
-                }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "saveUnwind" {
+                /*let newBoard = Board(context: self.context)
+                newBoard.title = boardName
+                myImageName = writeImage()
+                newTrip.imageFileName = myImageName
+                boardOptional = newBoard
+                print("in layout one")*/
             }
-        }*/
+        }
+    }
     
     // MARK: - Keyboard Actions
     
