@@ -242,7 +242,7 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 if photo4ImageView.image != nil {
                     writeImage(photoNumber: 4)
                 }
-                boardOptional = Board(layoutNumber: layoutNumber, boardName: boardName, image1FileName: imageLocation1, image2FileName: imageLocation2, image3FileName: imageLocation3, image4FileName: imageLocation4)
+                //boardOptional = Board(layoutNumber: layoutNumber, boardName: boardName, image1FileName: imageLocation1, image2FileName: imageLocation2, image3FileName: imageLocation3, image4FileName: imageLocation4)
                 performSegue(withIdentifier: "SaveUnwindSegue", sender: self)
             }
         }

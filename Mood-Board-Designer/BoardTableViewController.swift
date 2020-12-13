@@ -88,12 +88,10 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
 
         // Save Boards values in a Board
         // For BoardTableViewCell formatting
-        let layoutNumber = board.layoutNumber
-        let boardName = board.boardName
-        if let image1FileNameUnwrapped = board.image1FileName, let image2FileNameUnwrapped = board.image2FileName, let image3FileNameUnwrapped = board.image3FileName, let image4FileNameUnwrapped = board.image4FileName {
-            let boardObject = Board(layoutNumber: layoutNumber, boardName: boardName, image1FileName: image1FileNameUnwrapped, image2FileName: image2FileNameUnwrapped, image3FileName: image3FileNameUnwrapped, image4FileName: image4FileNameUnwrapped)
+        /*if let titleUnwrapped = board.title, let imageNameUnwrapped = board.imageName {
+            let boardObject = Board(title: titleUnwrapped, imageName: imageNameUnwrapped)
             cell.update(with: boardObject)
-        }
+        }*/
 
         cell.showsReorderControl = true
 
@@ -110,7 +108,7 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
             if identifier == "saveUnwind" {
                 print("saveUnwind")
                 if let addBoard =
-                    segue.source as? Layout1ViewController {
+                    segue.source as? AddBoardViewController {
                     if let board = addBoard.boardOptional {
                         print("back in boardTableVC")
                         print(board)
