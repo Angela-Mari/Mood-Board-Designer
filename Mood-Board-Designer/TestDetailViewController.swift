@@ -10,7 +10,7 @@ import UIKit
 //if this was the detail view of a selected mood board we would have an image and text passed from Core Data
 class TestDetailViewController: UIViewController {
 
-    let mood = Mood(title: "passed from BTCV", image1: "display one", image2: "display 2")
+    let mood = Mood(title: "Testing 2 images...", image1: "test", image2: "test2")
     
     @IBAction func displayWidget(_ sender: UIButton) {
         

@@ -9,13 +9,10 @@ import SwiftUI
 
 struct MoodWidgetView: View {
     
-    @AppStorage("mood", store: UserDefaults(suiteName: "group.MoodBoardDesignerGroup"))
-    var moodData: Data = Data()
-    
-    
     let mood : Mood
     
     var body: some View {
         Text(mood.title)
     }
 }
+
