@@ -7,19 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C72B15B2585925B0079BC63 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C72B15A2585925B0079BC63 /* WidgetKit.framework */; };
+		9C72B15D2585925B0079BC63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C72B15C2585925B0079BC63 /* SwiftUI.framework */; };
+		9C72B1602585925B0079BC63 /* MoodWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B15F2585925B0079BC63 /* MoodWidget.swift */; };
+		9C72B1622585925B0079BC63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C72B1612585925B0079BC63 /* Assets.xcassets */; };
+		9C72B1662585925B0079BC63 /* MoodWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C72B1582585925B0079BC63 /* MoodWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9C72B17B258598220079BC63 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17A258598220079BC63 /* Mood.swift */; };
+		9C72B17C258598220079BC63 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17A258598220079BC63 /* Mood.swift */; };
+		9C72B1802585999B0079BC63 /* MoodWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */; };
+		9C72B1842585B72E0079BC63 /* TestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B1832585B72E0079BC63 /* TestDetailViewController.swift */; };
 		9C86896825741E860065799B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896725741E860065799B /* AppDelegate.swift */; };
 		9C86896A25741E860065799B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896925741E860065799B /* SceneDelegate.swift */; };
 		9C86896C25741E860065799B /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896B25741E860065799B /* BoardTableViewController.swift */; };
 		9C86896F25741E860065799B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C86896D25741E860065799B /* Main.storyboard */; };
 		9C86897125741E890065799B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C86897025741E890065799B /* Assets.xcassets */; };
 		9C86897425741E890065799B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C86897225741E890065799B /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		C2269EE9257EE61300406CC4 /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2269EE8257EE61300406CC4 /* AddBoardViewController.swift */; };
+=======
+		9C9D5474257C322200E29563 /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */; };
+		9C9D5475257C322200E29563 /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */; };
+		9CCC2DD1257C2C8D0000998A /* MoodModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */; };
+>>>>>>> main
 		C249A549257970E6001D9C92 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A548257970E6001D9C92 /* BoardTableViewCell.swift */; };
-		C249A54C2579771B001D9C92 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A54B2579771B001D9C92 /* Board.swift */; };
 		C249A54F25797E61001D9C92 /* ChooseBoardLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9C72B1642585925B0079BC63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C86895C25741E860065799B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C72B1572585925B0079BC63;
+			remoteInfo = MoodWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C72B16A2585925B0079BC63 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9C72B1662585925B0079BC63 /* MoodWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9C72B1582585925B0079BC63 /* MoodWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoodWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C72B15A2585925B0079BC63 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9C72B15C2585925B0079BC63 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		9C72B15F2585925B0079BC63 /* MoodWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidget.swift; sourceTree = "<group>"; };
+		9C72B1612585925B0079BC63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C72B1632585925B0079BC63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C72B16D2585927D0079BC63 /* Mood-Board-Designer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mood-Board-Designer.entitlements"; sourceTree = "<group>"; };
+		9C72B170258592840079BC63 /* MoodWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoodWidgetExtension.entitlements; sourceTree = "<group>"; };
+		9C72B17A258598220079BC63 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidgetView.swift; sourceTree = "<group>"; };
+		9C72B1832585B72E0079BC63 /* TestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailViewController.swift; sourceTree = "<group>"; };
 		9C86896425741E860065799B /* Mood-Board-Designer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood-Board-Designer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C86896725741E860065799B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C86896925741E860065799B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,13 +77,27 @@
 		9C86897025741E890065799B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C86897325741E890065799B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C86897525741E890065799B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		C2269EE8257EE61300406CC4 /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
+=======
+		9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodModel.xcdatamodel; sourceTree = "<group>"; };
+>>>>>>> main
 		C249A548257970E6001D9C92 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
-		C249A54B2579771B001D9C92 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBoardLayoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C72B1552585925B0079BC63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C72B15D2585925B0079BC63 /* SwiftUI.framework in Frameworks */,
+				9C72B15B2585925B0079BC63 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C86896125741E860065799B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,10 +108,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C72B1592585925B0079BC63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C72B15A2585925B0079BC63 /* WidgetKit.framework */,
+				9C72B15C2585925B0079BC63 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C72B15E2585925B0079BC63 /* MoodWidget */ = {
+			isa = PBXGroup;
+			children = (
+				9C72B15F2585925B0079BC63 /* MoodWidget.swift */,
+				9C72B1612585925B0079BC63 /* Assets.xcassets */,
+				9C72B1632585925B0079BC63 /* Info.plist */,
+				9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */,
+			);
+			path = MoodWidget;
+			sourceTree = "<group>";
+		};
 		9C86895B25741E860065799B = {
 			isa = PBXGroup;
 			children = (
+				9C72B170258592840079BC63 /* MoodWidgetExtension.entitlements */,
 				9C86896625741E860065799B /* Mood-Board-Designer */,
+				9C72B15E2585925B0079BC63 /* MoodWidget */,
+				9C72B1592585925B0079BC63 /* Frameworks */,
 				9C86896525741E860065799B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				9C86896425741E860065799B /* Mood-Board-Designer.app */,
+				9C72B1582585925B0079BC63 /* MoodWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,24 +151,54 @@
 		9C86896625741E860065799B /* Mood-Board-Designer */ = {
 			isa = PBXGroup;
 			children = (
+				9C72B16D2585927D0079BC63 /* Mood-Board-Designer.entitlements */,
+				9C9D546E257C305800E29563 /* Core Data */,
 				9C86896725741E860065799B /* AppDelegate.swift */,
 				9C86896925741E860065799B /* SceneDelegate.swift */,
 				9C86896B25741E860065799B /* BoardTableViewController.swift */,
 				9C86896D25741E860065799B /* Main.storyboard */,
+				9C72B1832585B72E0079BC63 /* TestDetailViewController.swift */,
+				9C72B17A258598220079BC63 /* Mood.swift */,
 				9C86897025741E890065799B /* Assets.xcassets */,
 				9C86897225741E890065799B /* LaunchScreen.storyboard */,
 				9C86897525741E890065799B /* Info.plist */,
 				C249A548257970E6001D9C92 /* BoardTableViewCell.swift */,
-				C249A54B2579771B001D9C92 /* Board.swift */,
 				C249A54E25797E61001D9C92 /* ChooseBoardLayoutViewController.swift */,
 				C2269EE8257EE61300406CC4 /* AddBoardViewController.swift */,
 			);
 			path = "Mood-Board-Designer";
 			sourceTree = "<group>";
 		};
+		9C9D546E257C305800E29563 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C9D5472257C322200E29563 /* Board+CoreDataClass.swift */,
+				9C9D5473257C322200E29563 /* Board+CoreDataProperties.swift */,
+				9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C72B1572585925B0079BC63 /* MoodWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C72B1672585925B0079BC63 /* Build configuration list for PBXNativeTarget "MoodWidgetExtension" */;
+			buildPhases = (
+				9C72B1542585925B0079BC63 /* Sources */,
+				9C72B1552585925B0079BC63 /* Frameworks */,
+				9C72B1562585925B0079BC63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoodWidgetExtension;
+			productName = MoodWidgetExtension;
+			productReference = 9C72B1582585925B0079BC63 /* MoodWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		9C86896325741E860065799B /* Mood-Board-Designer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C86897825741E890065799B /* Build configuration list for PBXNativeTarget "Mood-Board-Designer" */;
@@ -89,10 +206,12 @@
 				9C86896025741E860065799B /* Sources */,
 				9C86896125741E860065799B /* Frameworks */,
 				9C86896225741E860065799B /* Resources */,
+				9C72B16A2585925B0079BC63 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9C72B1652585925B0079BC63 /* PBXTargetDependency */,
 			);
 			name = "Mood-Board-Designer";
 			productName = "Mood-Board-Designer";
@@ -108,6 +227,9 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					9C72B1572585925B0079BC63 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					9C86896325741E860065799B = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -127,11 +249,20 @@
 			projectRoot = "";
 			targets = (
 				9C86896325741E860065799B /* Mood-Board-Designer */,
+				9C72B1572585925B0079BC63 /* MoodWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C72B1562585925B0079BC63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C72B1622585925B0079BC63 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C86896225741E860065799B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -145,21 +276,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C72B1542585925B0079BC63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C72B17C258598220079BC63 /* Mood.swift in Sources */,
+				9C72B1602585925B0079BC63 /* MoodWidget.swift in Sources */,
+				9C72B1802585999B0079BC63 /* MoodWidgetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C86896025741E860065799B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				C2269EE9257EE61300406CC4 /* AddBoardViewController.swift in Sources */,
+=======
+				9C9D5474257C322200E29563 /* Board+CoreDataClass.swift in Sources */,
+				C249A5522579811A001D9C92 /* Layout1ViewController.swift in Sources */,
+>>>>>>> main
 				C249A54F25797E61001D9C92 /* ChooseBoardLayoutViewController.swift in Sources */,
+				9C72B17B258598220079BC63 /* Mood.swift in Sources */,
 				9C86896C25741E860065799B /* BoardTableViewController.swift in Sources */,
 				9C86896825741E860065799B /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				C249A54C2579771B001D9C92 /* Board.swift in Sources */,
+=======
+				9C9D5475257C322200E29563 /* Board+CoreDataProperties.swift in Sources */,
+				9CCC2DD1257C2C8D0000998A /* MoodModel.xcdatamodeld in Sources */,
+				C249A55525798135001D9C92 /* Layout2ViewController.swift in Sources */,
+>>>>>>> main
 				C249A549257970E6001D9C92 /* BoardTableViewCell.swift in Sources */,
 				9C86896A25741E860065799B /* SceneDelegate.swift in Sources */,
+				9C72B1842585B72E0079BC63 /* TestDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C72B1652585925B0079BC63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C72B1572585925B0079BC63 /* MoodWidgetExtension */;
+			targetProxy = 9C72B1642585925B0079BC63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9C86896D25741E860065799B /* Main.storyboard */ = {
@@ -181,6 +343,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9C72B1682585925B0079BC63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoodWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S847R3NA7S;
+				INFOPLIST_FILE = MoodWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mood-Board-Designer-example.Mood-Board-Designer.MoodWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C72B1692585925B0079BC63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoodWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S847R3NA7S;
+				INFOPLIST_FILE = MoodWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mood-Board-Designer-example.Mood-Board-Designer.MoodWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		9C86897625741E890065799B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -300,10 +506,16 @@
 		9C86897925741E890065799B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mood-Board-Designer/Mood-Board-Designer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = GUYPJD4NUE;
+=======
+				DEVELOPMENT_TEAM = S847R3NA7S;
+>>>>>>> main
 				INFOPLIST_FILE = "Mood-Board-Designer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -319,10 +531,16 @@
 		9C86897A25741E890065799B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mood-Board-Designer/Mood-Board-Designer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = GUYPJD4NUE;
+=======
+				DEVELOPMENT_TEAM = S847R3NA7S;
+>>>>>>> main
 				INFOPLIST_FILE = "Mood-Board-Designer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,6 +556,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C72B1672585925B0079BC63 /* Build configuration list for PBXNativeTarget "MoodWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C72B1682585925B0079BC63 /* Debug */,
+				9C72B1692585925B0079BC63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9C86895F25741E860065799B /* Build configuration list for PBXProject "Mood-Board-Designer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -357,6 +584,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CCC2DCF257C2C8D0000998A /* MoodModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */,
+			);
+			currentVersion = 9CCC2DD0257C2C8D0000998A /* MoodModel.xcdatamodel */;
+			path = MoodModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9C86895C25741E860065799B /* Project object */;
 }

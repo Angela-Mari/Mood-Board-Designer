@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Lt-dk-hei">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Lt-dk-hei">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Test Detail View Controller-->
+        <scene sceneID="rOI-W5-YSL">
+            <objects>
+                <viewController id="bVR-aA-agf" customClass="TestDetailViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="amW-Xv-A1N" customClass="Tes">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufS-Ax-tTP">
+                                <rect key="frame" x="126" y="318.5" width="123" height="30"/>
+                                <state key="normal" title="Display as Widget"/>
+                                <connections>
+                                    <action selector="displayWidget:" destination="bVR-aA-agf" eventType="touchUpInside" id="O1h-0j-Ttm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oen-pj-LGk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ufS-Ax-tTP" firstAttribute="centerY" secondItem="amW-Xv-A1N" secondAttribute="centerY" id="DLx-bH-7oB"/>
+                            <constraint firstItem="ufS-Ax-tTP" firstAttribute="centerX" secondItem="amW-Xv-A1N" secondAttribute="centerX" id="FZ3-OH-hv0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="m10-8J-bHn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Thb-dq-oWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="-569"/>
+        </scene>
         <!--My Boards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -58,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Boards" id="22b-k7-mx1">
+                        <barButtonItem key="leftBarButtonItem" title="Widget" id="cFK-wM-TrJ">
+                            <connections>
+                                <segue destination="bVR-aA-agf" kind="show" id="zmW-Bd-d6h"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="uqb-mK-CGk">
                             <connections>
                                 <segue destination="7PL-25-2Ml" kind="show" identifier="AddSegue" id="5xD-we-YXY"/>
@@ -123,14 +157,20 @@
             </objects>
             <point key="canvasLocation" x="1838" y="124"/>
         </scene>
+<<<<<<< HEAD
         <!--Add Board View Controller-->
         <scene sceneID="qdO-6W-y92">
+=======
+        <!--Layout 1 Designer-->
+        <scene sceneID="ddC-Dd-A1e">
+>>>>>>> main
             <objects>
                 <viewController id="RXT-bn-1Uy" customClass="AddBoardViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f0O-Gm-22P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-oW-7bC">
                                 <rect key="frame" x="16" y="118" width="310" height="34"/>
                                 <subviews>
@@ -149,8 +189,46 @@
                                             <action selector="inputTitle:" destination="RXT-bn-1Uy" eventType="editingDidEnd" id="zpy-Ws-FsG"/>
                                         </connections>
                                     </textField>
+=======
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-Hx-Pyd">
+                                <rect key="frame" x="15" y="59" width="345" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-eO-aol">
+                                        <rect key="frame" x="17.5" y="0.0" width="310" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzn-Il-JXk">
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a board name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ph4-0f-gJu">
+                                                <rect key="frame" x="123" y="0.0" width="187" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="inputTitle:" destination="42s-Lv-vh5" eventType="editingDidEnd" id="6uj-Lw-3Tz"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-qI-xdH">
+                                        <rect key="frame" x="52.5" y="35.5" width="240" height="119.5"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59f-HU-hAJ">
+                                        <rect key="frame" x="155.5" y="170" width="34" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <segue destination="y6V-tq-lg6" kind="unwind" identifier="saveUnwind" unwindAction="unwindToInitialVCWithSegue:" id="N7l-lK-mDU"/>
+                                        </connections>
+                                    </button>
+>>>>>>> main
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="lDf-qI-xdH" firstAttribute="leading" secondItem="Upo-Hx-Pyd" secondAttribute="leading" constant="52.5" id="PGg-8z-ohs"/>
+                                </constraints>
                             </stackView>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Images:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-Mc-hGL">
                                 <rect key="frame" x="17" y="175" width="60" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -248,11 +326,86 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+=======
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pNf-Uv-jWG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Upo-Hx-Pyd" firstAttribute="leading" secondItem="ubz-P0-s6B" secondAttribute="leading" constant="15" id="4GB-UZ-Kcr"/>
+                            <constraint firstItem="Upo-Hx-Pyd" firstAttribute="top" secondItem="pNf-Uv-jWG" secondAttribute="top" constant="15" id="58t-3P-DfA"/>
+                            <constraint firstItem="pNf-Uv-jWG" firstAttribute="trailing" secondItem="Upo-Hx-Pyd" secondAttribute="trailing" constant="15" id="f8C-cm-x5u"/>
+                            <constraint firstItem="pNf-Uv-jWG" firstAttribute="bottom" secondItem="Upo-Hx-Pyd" secondAttribute="bottom" constant="408" id="unH-y0-LfJ"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tV9-AI-Q8E" appends="YES" id="J6C-0Z-fbN"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Layout 1 Designer" id="Nsn-b6-dTa"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="ph4-0f-gJu" id="HFy-S4-bcu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5W-yQ-ZvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tV9-AI-Q8E">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="42s-Lv-vh5" id="fRi-8Z-uv8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <exit id="y6V-tq-lg6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2745" y="-224"/>
+        </scene>
+        <!--Layout 2 Designer-->
+        <scene sceneID="E8u-4X-0Ok">
+            <objects>
+                <viewController id="yeU-RK-0r4" customClass="Layout2ViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t0a-pq-aZK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="pah-C3-W29">
+                                <rect key="frame" x="-15" y="59" width="375" height="91"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-Oi-E0j">
+                                        <rect key="frame" x="32.5" y="0.0" width="310" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFz-HA-rhe">
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a board name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REa-ap-8BI">
+                                                <rect key="frame" x="123" y="0.0" width="187" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDG-k7-DuE">
+                                        <rect key="frame" x="170.5" y="61" width="34" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="yeU-RK-0r4" eventType="touchUpInside" id="SWF-CO-RuY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+>>>>>>> main
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="np4-s8-xfI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vdA-5d-w99" firstAttribute="trailing" secondItem="pah-C3-W29" secondAttribute="trailing" constant="15" id="bvB-SV-jdL"/>
+                            <constraint firstItem="pah-C3-W29" firstAttribute="leading" secondItem="t0a-pq-aZK" secondAttribute="leading" constant="-15" id="vGH-E9-Htc"/>
+                            <constraint firstItem="pah-C3-W29" firstAttribute="top" secondItem="vdA-5d-w99" secondAttribute="top" constant="15" id="zFc-Jf-4ce"/>
+                        </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="YNd-6l-Jpu"/>
+=======
+                    <navigationItem key="navigationItem" title="Layout 2 Designer" id="CHA-Ii-NjG"/>
+>>>>>>> main
                     <connections>
                         <outlet property="boardNameTextField" destination="WUU-cW-Mbr" id="dg1-vm-bcC"/>
                         <outlet property="layoutNumberLabel" destination="Zce-TT-GpX" id="amW-MV-h9V"/>
