@@ -12,11 +12,11 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet var tableView: UITableView!
     var boards = [Board]() // Collection of boards (data set)
-<<<<<<< HEAD
+
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-=======
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
->>>>>>> main
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.update(with: board)
         
-<<<<<<< HEAD
+
         // Save Boards values in a Board
         // For BoardTableViewCell formatting
         let layoutNumber = board.layoutNumber
@@ -94,17 +94,16 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
             let boardObject = Board(layoutNumber: layoutNumber, boardName: boardName, image1FileName: image1FileNameUnwrapped, image2FileName: image2FileNameUnwrapped, image3FileName: image3FileNameUnwrapped, image4FileName: image4FileNameUnwrapped)
             cell.update(with: boardObject)
         }
-=======
+
         cell.showsReorderControl = true
->>>>>>> main
+
         
         return cell
     }
     
     
     // Edit mode (rearrange and delete) (navigation bar)????
-<<<<<<< HEAD
-=======
+
     // Add a new board (navigation bar)
     @IBAction func unwindToInitialVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
@@ -124,7 +123,7 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
         }
         
     }
->>>>>>> main
+
     
     // MARK: - Segues
     
