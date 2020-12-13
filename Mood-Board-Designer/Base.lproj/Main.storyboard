@@ -8,6 +8,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Test Detail View Controller-->
+        <scene sceneID="rOI-W5-YSL">
+            <objects>
+                <viewController id="bVR-aA-agf" customClass="TestDetailViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="amW-Xv-A1N" customClass="Tes">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufS-Ax-tTP">
+                                <rect key="frame" x="126" y="318.5" width="123" height="30"/>
+                                <state key="normal" title="Display as Widget"/>
+                                <connections>
+                                    <action selector="displayWidget:" destination="bVR-aA-agf" eventType="touchUpInside" id="O1h-0j-Ttm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oen-pj-LGk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ufS-Ax-tTP" firstAttribute="centerY" secondItem="amW-Xv-A1N" secondAttribute="centerY" id="DLx-bH-7oB"/>
+                            <constraint firstItem="ufS-Ax-tTP" firstAttribute="centerX" secondItem="amW-Xv-A1N" secondAttribute="centerX" id="FZ3-OH-hv0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="m10-8J-bHn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Thb-dq-oWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="-569"/>
+        </scene>
         <!--My Boards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -21,14 +50,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardCell" id="SXx-3q-M5z" customClass="BoardTableViewCell" customModule="Mood_Board_Designer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="367" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="367" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXx-3q-M5z" id="vme-TJ-7C7">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-yo-ikp">
-                                                    <rect key="frame" x="4" y="4" width="359" height="33.5"/>
+                                                    <rect key="frame" x="4" y="4" width="359" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Boards" id="22b-k7-mx1">
+                        <barButtonItem key="leftBarButtonItem" title="Widget" id="cFK-wM-TrJ">
+                            <connections>
+                                <segue destination="bVR-aA-agf" kind="show" id="zmW-Bd-d6h"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="uqb-mK-CGk">
                             <connections>
                                 <segue destination="7PL-25-2Ml" kind="show" identifier="AddSegue" id="5xD-we-YXY"/>
