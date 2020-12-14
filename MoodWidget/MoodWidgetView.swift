@@ -12,7 +12,12 @@ struct MoodWidgetView: View {
     let mood : Mood
     
     var body: some View {
-        Text(mood.title)
+        VStack{
+            Text(mood.title)
+            
+            
+        }.padding()
+        
     }
 }
 

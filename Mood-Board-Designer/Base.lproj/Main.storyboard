@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Lt-dk-hei">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Lt-dk-hei">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Test Detail View Controller-->
+        <scene sceneID="Boy-XK-1t2">
+            <objects>
+                <viewController id="UoJ-hB-sj5" customClass="TestDetailViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ejg-2I-boj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvH-3l-YqK">
+                                <rect key="frame" x="142" y="318.5" width="91" height="30"/>
+                                <state key="normal" title="Show Widget"/>
+                                <connections>
+                                    <action selector="displayWidget:" destination="UoJ-hB-sj5" eventType="touchUpInside" id="axB-dW-wXd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VZV-9X-p8C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LvH-3l-YqK" firstAttribute="centerX" secondItem="ejg-2I-boj" secondAttribute="centerX" id="UTB-vo-aIf"/>
+                            <constraint firstItem="LvH-3l-YqK" firstAttribute="centerY" secondItem="ejg-2I-boj" secondAttribute="centerY" id="e83-cT-zig"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MaP-yY-C95"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q77-2b-BPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="-603"/>
+        </scene>
         <!--My Boards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -58,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Boards" id="22b-k7-mx1">
+                        <barButtonItem key="leftBarButtonItem" title="Widget" id="v1Q-11-luX">
+                            <connections>
+                                <segue destination="UoJ-hB-sj5" kind="show" id="gsb-nY-R8B"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="uqb-mK-CGk">
                             <connections>
                                 <segue destination="7PL-25-2Ml" kind="show" identifier="AddSegue" id="5xD-we-YXY"/>
@@ -161,10 +195,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-7S-8eT">
                                 <rect key="frame" x="16" y="204" width="347" height="316"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="lPQ-yj-4SK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="lPQ-yj-4SK">
                                         <rect key="frame" x="0.0" y="0.0" width="347" height="155"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-nS-kRv">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-nS-kRv">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="155"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdR-dc-80T">
@@ -174,12 +208,15 @@
                                                             <action selector="photo1Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="tP9-E1-BfY"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXx-oV-icY">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXx-oV-icY">
                                                         <rect key="frame" x="0.0" y="27" width="170" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="4KK-F8-8EN"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-ls-TAL">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-ls-TAL">
                                                 <rect key="frame" x="177" y="0.0" width="170" height="155"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="go1-cy-gmS">
@@ -189,17 +226,23 @@
                                                             <action selector="photo2Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="qdg-Mu-75u"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0nV-X0-vbd">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0nV-X0-vbd">
                                                         <rect key="frame" x="0.0" y="27" width="170" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="mxl-4e-TM6"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="170" id="TLa-1k-Nj1"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-sI-NM7">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-sI-NM7">
                                         <rect key="frame" x="0.0" y="162" width="347" height="154"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uD2-jO-9oT">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uD2-jO-9oT">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="154"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PQ-VC-Zny">
@@ -209,12 +252,18 @@
                                                             <action selector="photo3Button:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="bdt-rH-7Mp"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQC-aB-Xuh">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQC-aB-Xuh">
                                                         <rect key="frame" x="0.0" y="26" width="170" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="ald-Vg-TT6"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="170" id="faE-Gu-mOj"/>
+                                                </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-VT-0tV">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-VT-0tV">
                                                 <rect key="frame" x="177" y="0.0" width="170" height="154"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwm-PT-bxw">
@@ -224,8 +273,11 @@
                                                             <action selector="photoButton4:" destination="RXT-bn-1Uy" eventType="touchUpInside" id="9fK-eV-5VZ"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Hk-Vg5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Hk-Vg5">
                                                         <rect key="frame" x="0.0" y="26" width="170" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="Bca-Nw-P4y"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>

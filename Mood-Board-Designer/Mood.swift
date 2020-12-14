@@ -36,11 +36,13 @@ class Mood : Identifiable, Codable{
     static func saveMoodsToFile(moods: [Mood]){
         let encoder = PropertyListEncoder()
         
+        
         if let moodsData = try? encoder.encode(moods) {
             try? moodsData.write(to: pListURL!)
             print("saved!")
         }
     }
+    
 
     static func loadMoodsFromFile()-> [Mood]?{
         let decoder = PropertyListDecoder()

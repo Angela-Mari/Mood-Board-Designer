@@ -13,37 +13,47 @@ import SwiftUI
 struct Provider: TimelineProvider {
     let moods = Mood.loadMoodsFromFile()
     
+    let decoder = PropertyListDecoder()
+    
+    
+    let fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.MoodBoardDesignerGroup")?.appendingPathComponent("test3.jpeg")
+    
+    
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), title: "placeholder", image1: "placeholder", image2: "placeholder")
+        SimpleEntry(date: Date(), title: "placeholder", image1: UIImage(imageLiteralResourceName: "placeholder.jpeg"), image2: "placeholder")
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         
-        let entry = SimpleEntry(date: Date(), title: moods?[0].title ?? "couldn't get data", image1: moods?[0].image1 ?? "couldn't get data", image2: moods?[0].image2 ?? "couldn't get data")
+        let entry = SimpleEntry(date: Date(), title: moods?[0].title ?? "couldn't get data", image1: UIImage(data: Data(base64Encoded: moods?[0].image1 ?? "couldn't get data")!)!, image2: moods?[0].image2 ?? "couldn't get data")
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        
+        
         var entries: [SimpleEntry] = []
         print("get timeline")
         //update widget on a timeline here
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .minute, value: 2, to: currentDate)!
+            let entry : SimpleEntry
+            
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
             print("start")
-            var newImage1 : String = moods?[0].image1 ?? "couldn't get data"
-            var newImage2 : String = moods?[0].image2 ?? "couldn't get data"
             
             //swap if even
             if (hourOffset%2 == 0){
-                print(hourOffset%2)
-                print("even")
-                newImage1 = moods?[0].image2 ?? "couldn't get data"
-                newImage2 = moods?[0].image1 ?? "couldn't get data"
+                print("Even")
+                entry = SimpleEntry(date: Date(), title: moods?[0].title ?? "couldn't get data", image1: UIImage(data: Data(base64Encoded: moods?[0].image1 ?? "couldn't get data")!)!, image2: moods?[0].image2 ?? "couldn't get data")
+            }
+            else {
+                print("odd")
+                entry = SimpleEntry(date: Date(), title: moods?[0].title ?? "couldn't get data", image1: UIImage(data: Data(base64Encoded: moods?[0].image1 ?? "couldn't get data")!)!, image2: moods?[0].image2 ?? "couldn't get data")
             }
             
-            let entry = SimpleEntry(date: entryDate, title: moods?[0].title ?? "couldn't get data", image1: newImage1, image2: newImage2)
             entries.append(entry)
         }
 
@@ -55,20 +65,24 @@ struct Provider: TimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let title: String
-    let image1: String
+    let image1: UIImage
     let image2: String
 }
 
-struct MoodWidgetEntryView : View {
+struct MoodWidgetEntry1View : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
+        
+            VStack {
             Text(entry.title)
-            Image(entry.image1)
+                Image(uiImage: entry.image1)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-        }.padding()
+            }
+            .padding()
+            
+        
     }
 }
 
@@ -78,16 +92,17 @@ struct MoodWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            MoodWidgetEntryView(entry: entry)
+            MoodWidgetEntry1View(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Mood Widget")
+        .description("Display your mood boards on your homescreen.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
 struct MoodWidget_Previews: PreviewProvider {
     static var previews: some View {
-        MoodWidgetEntryView(entry: SimpleEntry(date: Date(), title: "timeline", image1: "placeholder", image2: "placeholder"))
+        MoodWidgetEntry1View(entry: SimpleEntry(date: Date(), title: "placeholder", image1: UIImage(imageLiteralResourceName: "placeholder.jpeg"), image2: "placeholder"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
