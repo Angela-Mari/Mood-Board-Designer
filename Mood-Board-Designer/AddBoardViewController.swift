@@ -94,6 +94,7 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
      parameters - sender: the button being pushed
     */
     @IBAction func saveButtonPushed(_ sender: UIButton) {
+        print("saved")
         if let title = titleTextField.text {
             // Adjust error message if they forgot to input a board title
             if title == "" {
@@ -246,6 +247,7 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
      Write the image to the documents directory for future reference
     */
     func writeImage(imageView: UIImageView, imageNum: Int) {
+        print("writing image")
         // Get the Location of the documents directory
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
@@ -258,18 +260,18 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // Get a Data instance using the image
         if let photo = imageView.image, let data = photo.jpegData(compressionQuality: 1.0) {
             do {
-                try data.write(to: imageFileURL)
+                try data.write(to: imageFileURL, options: [.atomic])
             } catch {
                 print("Error writing image data to disk \(error)")
             }
         }
         
-        let imageFromDisk = UIImage(contentsOfFile: imageFileURL.path)
+        //let imageFromDisk = UIImage(contentsOfFile: imageFileURL.path)
         if imageNum == 1 {
-            imageLocation1 = imageFileURL.path
+            imageLocation1 = image1Name
         }
         else if imageNum == 2 {
-            imageLocation2 = imageFileURL.path
+            imageLocation2 = image1Name
         }
     }
 }

@@ -19,6 +19,30 @@ class BoardDetailViewController: UIViewController {
     @IBOutlet var boardImageView1: UIImageView!
     @IBOutlet var boardImageView2: UIImageView!
     
+    // MARK: - Save to widget
+    
+    @IBAction func displayWidget(_ sender: UIButton) {
+            
+        print("saving moodboard config")
+            
+        //convert one image
+        let imageData = boardImageView1?.image?.jpegData(compressionQuality: 0.5)
+        let imageBase64String1 = imageData?.base64EncodedString()
+            
+        //convert second image
+        let imageData2 = boardImageView2?.image?.jpegData(compressionQuality: 0.5)
+        let imageBase64String2 = imageData2?.base64EncodedString()
+            
+            
+            print(imageBase64String1 ?? "nope")
+            
+        let mood = Mood(title: titleLabel.text ?? "could not unwrap", image1: imageBase64String1 ?? "placeholder", image2: imageBase64String2 ?? "placeholder")
+            
+            
+            Mood.saveMoodsToFile(moods: [mood])
+        print("saved")
+        }
+    
     // MARK: - Load the View
     
     /**
@@ -26,7 +50,6 @@ class BoardDetailViewController: UIViewController {
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-
         displayBoard()
     }
     
@@ -34,15 +57,27 @@ class BoardDetailViewController: UIViewController {
      Updates the text of the labels appropriately based on the Trip the UI is going to display the details for
     */
     func displayBoard() {
+        
         if let board = boardOptional {
-            // Update text labels with correct information
+            print("inside board optional")
+            
             titleLabel.text = board.title
-            if let image1 = board.image1Name {
-                boardImageView1.image = UIImage(named: image1)
-            }
-            if let image2 = board.image2Name {
-                boardImageView2.image = UIImage(named: image2)
-            }
+            
+            // get documentDirectoryPath
+            let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in : .userDomainMask).first!
+            
+            //get first image from disk
+            let url = documentsDirectoryURL.appendingPathComponent(board.image1Name ?? "placeholder").appendingPathExtension("plist")
+            print(url)
+            let imageFromDisk = UIImage(contentsOfFile: url.path)
+            boardImageView1.image = imageFromDisk
+                
+            //get second image from disk
+            let url2 = documentsDirectoryURL.appendingPathComponent(board.image2Name ?? "placeholder").appendingPathExtension("plist")
+            print(url2)
+            let image2FromDisk = UIImage(contentsOfFile: url2.path)
+            
+            boardImageView2.image = image2FromDisk
         }
     }
 }

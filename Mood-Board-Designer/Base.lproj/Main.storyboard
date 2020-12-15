@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v6c-XX-alN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v6c-XX-alN">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +11,7 @@
         <!--My Boards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BoardTableViewController" customModule="Mood-Board-Designer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BoardTableViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BoardCell" rowHeight="55" id="LHb-rE-ZNQ" customClass="BoardTableViewCell" customModule="Mood-Board-Designer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BoardCell" rowHeight="55" id="LHb-rE-ZNQ" customClass="BoardTableViewCell" customModule="Mood_Board_Designer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LHb-rE-ZNQ" id="yro-SE-ecU">
@@ -96,7 +95,7 @@
         <!--Add a New Board-->
         <scene sceneID="DgK-4D-LlQ">
             <objects>
-                <viewController id="LIf-6k-p5i" customClass="AddBoardViewController" customModule="Mood-Board-Designer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LIf-6k-p5i" customClass="AddBoardViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEo-yj-S3s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,10 +301,10 @@
             </objects>
             <point key="canvasLocation" x="1856.8" y="-185.75712143928038"/>
         </scene>
-        <!--Trip Board-->
+        <!--Mood Board-->
         <scene sceneID="3jI-Py-U5T">
             <objects>
-                <viewController id="3lb-Hp-seC" customClass="BoardDetailViewController" customModule="Mood-Board-Designer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3lb-Hp-seC" customClass="BoardDetailViewController" customModule="Mood_Board_Designer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qi7-r2-Q3t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,28 +313,35 @@
                                 <rect key="frame" x="4" y="48" width="367" height="615"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Qz-Z7-K4b">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="198.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="146.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-vx-iye">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="198.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="146.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-IN-XtJ">
-                                                <rect key="frame" x="91" y="0.0" width="41" height="198.5"/>
+                                                <rect key="frame" x="91" y="0.0" width="41" height="146.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-9M-0OE">
-                                        <rect key="frame" x="0.0" y="208.5" width="343" height="198"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-9M-0OE">
+                                        <rect key="frame" x="0.0" y="156.5" width="343" height="146"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ock-wC-VUC">
-                                        <rect key="frame" x="0.0" y="416.5" width="343" height="198.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ock-wC-VUC">
+                                        <rect key="frame" x="0.0" y="312.5" width="343" height="146.5"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAV-px-ekC">
+                                        <rect key="frame" x="0.0" y="469" width="120" height="146"/>
+                                        <state key="normal" title="Display as widget"/>
+                                        <connections>
+                                            <action selector="displayWidget:" destination="3lb-Hp-seC" eventType="touchUpInside" id="6BP-pi-Ogf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -348,7 +354,7 @@
                             <constraint firstItem="Jva-gh-YuE" firstAttribute="trailing" secondItem="xKV-c3-fSV" secondAttribute="trailing" constant="4" id="qPU-7z-eiI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Trip Board" id="zYZ-wm-MVJ"/>
+                    <navigationItem key="navigationItem" title="Mood Board" id="zYZ-wm-MVJ"/>
                     <connections>
                         <outlet property="boardImageView1" destination="MTX-9M-0OE" id="GKV-6X-ZPs"/>
                         <outlet property="boardImageView2" destination="ock-wC-VUC" id="gdm-8e-tX2"/>

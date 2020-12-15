@@ -191,16 +191,15 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
                     // Pass the board into detailDetailVC
                     if let indexPath = tableView.indexPathForSelectedRow {
                         let board = boards[indexPath.row]
+                        print("passing \(board)")
                         boardDetailVC.boardOptional = board
                     }
                 }
             }
             else if identifier == "AddSegue" {
-                if let addBoardVC = segue.destination as? AddBoardViewController {
-                    if let indexPath = tableView.indexPathForSelectedRow {
-                        tableView.deselectRow(at: indexPath, animated: true)
-                        //addBoardVC.totalNumBoards = boards.count + 1
-                    }
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    //addBoardVC.totalNumBoards = boards.count + 1
                 }
             }
         }
@@ -218,20 +217,16 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
                 if let boardDetailVC = segue.source as? AddBoardViewController {
                     if let board = boardDetailVC.boardOptional {
                         // Get the currently selected index path
-                        if let indexPath = tableView.indexPathForSelectedRow {
-                            // Not needed for this, but can be used if we wanted to edit details
-                            //boards[indexPath.row] = board
-                        }
-                        else { // Unwinding from an AddSegue
-                            // Add the new board to the boards array
-                            // Make a Board using context
-                            let newBoard = Board(context: self.context)
-                            newBoard.layoutNumber = Int16(board.layoutNumber)
-                            newBoard.title = board.title
-                            newBoard.image1Name = board.image1Name
-                            newBoard.image2Name = board.image2Name
-                            boards.append(newBoard)
-                        }
+                       
+                        // Add the new board to the boards array
+                        // Make a Board using context
+                        let newBoard = Board(context: self.context)
+                        newBoard.layoutNumber = Int16(board.layoutNumber)
+                        newBoard.title = board.title
+                        newBoard.image1Name = board.image1Name
+                        newBoard.image2Name = board.image2Name
+                        boards.append(newBoard)
+                        
                         // Force update the table view
                         self.saveBoards()
                     }
