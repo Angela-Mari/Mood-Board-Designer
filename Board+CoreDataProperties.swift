@@ -16,8 +16,10 @@ extension Board {
         return NSFetchRequest<Board>(entityName: "Board")
     }
 
-    @NSManaged public var imageName: String?
+    @NSManaged public var layoutNumber: Int16
     @NSManaged public var title: String?
+    @NSManaged public var image1Name: String?
+    @NSManaged public var image2Name: String?
 
 }
 

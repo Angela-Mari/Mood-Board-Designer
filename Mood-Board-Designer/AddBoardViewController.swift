@@ -1,268 +1,66 @@
 //
-//  EditLayoutViewController.swift
+//  AddBoardViewController.swift
 //  Mood-Board-Designer
-//
-//  Created by Elizabeth Larson on 12/7/20.
-
+//  This program computes the logic needed to add a new board to the data source (database). Performs input validation for board name.
+//  CPSC 315-01, Fall 2020
+//  Final Project
 //  Sources:
 //      Camera/Photo Alert handling: https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1465002990 (pp. 682-687)
 //      writeImage() help: https://cocoacasts.com/fm-2-how-to-store-an-image-in-the-documents-directory-in-swift
+//      Segment control help: https://www.ioscreator.com/tutorials/segmented-control-ios-tutorial
+//
+//  Created by Elizabeth Larson on 12/7/20.
+//
 
 import UIKit
-//import CoreData
 
 class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // MARK: - Properites/IBOutlets
     
-    var boardOptional: Board? = nil
-    var layoutNumber: Int = 0
-    var boardName: String = ""
+    var boardOptional: BoardObject? = nil
+    var layoutNumber: Int = 1 // Segmented control is already on 1 when the screen loads
+    // File URLs to the desired images
     var imageLocation1 = ""
     var imageLocation2 = ""
-    var imageLocation3 = ""
-    var imageLocation4 = ""
+    var imageBeingSet: Int = 1 // The image being set (default photo #1)
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var alertLabel: UILabel! // Displays error message for invalid input
+    @IBOutlet var imageView1: UIImageView!
+    @IBOutlet var imageView2: UIImageView!
+    @IBOutlet var layoutSegmentedControl: UISegmentedControl!
+    @IBOutlet var layout1ExampleImageView: UIImageView!
+    @IBOutlet var layout2ExampleImageView: UIImageView!
     
     // MARK: - Load the View
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // TODO: Pass in layoutNumber (1 or 2)
-        layoutNumberLabel.text = "Layout: Layout \(layoutNumber)" // Tell the user what # layout they chose (i.e. Layout: Layout #1)
-    }
-    
-    // MARK: - Layout Number
-    @IBOutlet var layoutNumberLabel: UILabel!
-    
-    // MARK: - Board Name
-    @IBOutlet var boardNameTextField: UITextField!
-    @IBAction func inputTitle(_ sender: UITextField) {
-        guard let inputTitle = boardNameTextField.text, inputTitle != "" else {
-            print("Bad input")
-            return
-        }
-        print("Title recieved!")
-        boardName = inputTitle
-    }
-    
-    // MARK: - Camera and Photos
-    @IBOutlet var photo1ImageView: UIImageView!
-    @IBOutlet var photo2ImageView: UIImageView!
-    @IBOutlet var photo3ImageView: UIImageView!
-    @IBOutlet var photo4ImageView: UIImageView!
-    
-    
-    // Photo (camera) buttons
-    @IBAction func photo1Button(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        // Create an alert that pops up when the user clicks the camera button
-        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
-        // Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        // Adds an option to take a picture using the camera (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(cameraAction)
-        }
-        
-        // Adds an option to grab a picture from the photo library (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(photoLibraryAction)
-        }
-        
-        // Present the alert
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBAction func photo2Button(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        // Create an alert that pops up when the user clicks the camera button
-        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
-        // Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        // Adds an option to take a picture using the camera (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(cameraAction)
-        }
-        
-        // Adds an option to grab a picture from the photo library (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(photoLibraryAction)
-        }
-        
-        // Present the alert
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBAction func photo3Button(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        // Create an alert that pops up when the user clicks the camera button
-        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
-        // Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        // Adds an option to take a picture using the camera (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(cameraAction)
-        }
-        
-        // Adds an option to grab a picture from the photo library (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(photoLibraryAction)
-        }
-        
-        // Present the alert
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBAction func photoButton4(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        // Create an alert that pops up when the user clicks the camera button
-        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
-        // Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        // Adds an option to take a picture using the camera (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(cameraAction)
-        }
-        
-        // Adds an option to grab a picture from the photo library (if possible)
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
-            })
-            alertController.addAction(photoLibraryAction)
-        }
-        
-        // Present the alert
-        present(alertController, animated: true, completion: nil)
-    }
     
     /**
-     Write the image to the documents directory for future reference
-     
-     parameters - photoNumber: Which photo is being saved (i.e. photo1, photo2...)
+     Start the program when the view loads
     */
-    func writeImage(photoNumber: Int) {
-        // Get the Location of the documents directory
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        alertLabel.text = "" // Clear alertLabel's text so the user can't see it at first
         
-        // Generate a file name using a UUID
-        let imageFileName = "\(UUID().uuidString).jpg"
-        
-        // Set URL for the image
-        let imageFileURL = documents.appendingPathComponent(imageFileName)
-        
-        // Get a Data instance using the image
-        if let photo = photo1ImageView.image, let data = photo.jpegData(compressionQuality: 1.0) {
-            do {
-                try data.write(to: imageFileURL)
-            } catch {
-                print("Error writing image data to disk \(error)")
-            }
-        }
-        
-        let imageFromDisk = UIImage(contentsOfFile: imageFileURL.path)
-        if photoNumber == 1 {
-            imageLocation1 = imageFileURL.path
-        }
-        else if photoNumber == 2 {
-            imageLocation2 = imageFileURL.path
-        }
-        else if photoNumber == 3 {
-            imageLocation3 = imageFileURL.path
-        }
-        else if photoNumber == 4 {
-            imageLocation4 = imageFileURL.path
-        }
+        // Display the layout examples
+        // TODO: Add image examples of the layouts
+        //layout1ExampleImageView.image = UIImage(named: "noImage.png")
+        //layout2ExampleImageView.image = UIImage(named: "noImage.png")
     }
     
-    // MARK: - YouTube?
-    
-    // MARK: - Saving
-    // Saving the board
-    @IBAction func saveButton(_ sender: UIButton) {
-        if let boardName = boardNameTextField.text {
-            if boardName == "" { // Invalid board name input
-                // TODO: alert them that it's invalid input
-            }
-            else { // All inputs are valid and we can perform the segue
-                // Only save filled-in values (i.e. non nil image views)
-                if photo1ImageView.image != nil {
-                    writeImage(photoNumber: 1)
-                }
-                if photo2ImageView.image != nil {
-                    writeImage(photoNumber: 2)
-                }
-                if photo3ImageView.image != nil {
-                    writeImage(photoNumber: 3)
-                }
-                if photo4ImageView.image != nil {
-                    writeImage(photoNumber: 4)
-                }
-                //boardOptional = Board(layoutNumber: layoutNumber, boardName: boardName, image1FileName: imageLocation1, image2FileName: imageLocation2, image3FileName: imageLocation3, image4FileName: imageLocation4)
-                performSegue(withIdentifier: "SaveUnwindSegue", sender: self)
-            }
-        }
-        else { // There was an issue beyond improper board name
-            // TODO: alert them that it's invalid input
-        }
-    }
-    
-    // MARK: - Segues
-    // Copied from main branch's unwinding + core data
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "saveUnwind" {
-                /*let newBoard = Board(context: self.context)
-                newBoard.title = boardName
-                myImageName = writeImage()
-                newTrip.imageFileName = myImageName
-                boardOptional = newBoard
-                print("in layout one")*/
-            }
+    // MARK: - Choosing a Layout (Segmented Control)
+    /**
+     Handles hwen the layout segmented control is switched
+     
+     parameters - sender: the action occuring (in this case, toggling the segmented control)
+    */
+    @IBAction func indexChanged(_ sender: Any) {
+        switch layoutSegmentedControl.selectedSegmentIndex
+        {
+            case 0:
+                layoutNumber = 1
+            case 1:
+                layoutNumber = 2
+            default:
+                break
         }
     }
     
@@ -271,10 +69,10 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
     /**
      Dismiss the keyboard when the background/white space is tapped
      
-     parameters - sender: the action occuring (in this case, tapping the screen background
+     parameters - sender: the action occuring (in this case, tapping the screen background)
     */
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        boardNameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
     }
     
     /**
@@ -286,5 +84,192 @@ class AddBoardViewController: UIViewController, UITextFieldDelegate, UIImagePick
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // MARK: - Save and Cancel Button Logic
+    
+    /**
+     Performs a segue to the main table view screen if all input is valid, sending the information with it
+     
+     parameters - sender: the button being pushed
+    */
+    @IBAction func saveButtonPushed(_ sender: UIButton) {
+        if let title = titleTextField.text {
+            // Adjust error message if they forgot to input a board title
+            if title == "" {
+                alertLabel.text = "Missing board title"
+            }
+            else { // All inputs are valid and we can perform the segue
+                writeImage(imageView: imageView1, imageNum: 1)
+                writeImage(imageView: imageView2, imageNum: 2)
+                boardOptional = BoardObject(layoutNumber: layoutNumber, title: title, image1Name: imageLocation1, image2Name: imageLocation2)
+                performSegue(withIdentifier: "SaveUnwindSegue", sender: self)
+            }
+        }
+        else { // There was an issue beyond improper board title input
+            alertLabel.text = "Invalid board title input"
+        }
+    }
+    
+    /**
+     Ignore any data entered in the text fields and unwind to BoardTableViewController
+     
+     parameters - sender: the button being pushed
+    */
+    @IBAction func cancelButtonPushed(_ sender: UIButton) {
+        performSegue(withIdentifier: "CancelUnwindSegue", sender: self)
+    }
+    
+    // MARK: - Segue Action
+    
+    /**
+     Validate user credentials, stopping the automatic segue from happening if they're invalid
+     
+     parameters - identifier: the name of the segue being performed
+               sender: may or may not be triggered
+     returns - true if all input is valid, false otherwise
+    */
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // For alerts...
+        //      Board title will be blank ("") if an invalid/blank input was entered
+        guard let title = titleTextField.text, title != "" else {
+            return false
+        }
+        return true
+    }
+    
+    // MARK: - Camera/Photo Action
+    
+    /**
+     For photo #1
+     When the camera button is pushed, show an alert dialog that prompts the user to 1) cancel, 2) add a photo from their library, or 3) take a picture (if they're not using a simulator)
+     
+     parameters - sender: the button that was pushed (the camera one, in this case)
+    */
+    @IBAction func camera1ButtonPushed(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        // Create an alert that pops up when the user clicks the camera button
+        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+        
+        // Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // Adds an option to take a picture using the camera (if possible)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        
+        // Adds an option to grab a picture from the photo library (if possible)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
+                imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(photoLibraryAction)
+        }
+        
+        // Present the alert
+        present(alertController, animated: true, completion: nil)
+        
+        // Set imageBeingSet to 1 to show that it's the FIRST photo being saved
+        imageBeingSet = 1
+    }
+    
+    /**
+     For photo #2
+     When the camera button is pushed, show an alert dialog that prompts the user to 1) cancel, 2) add a photo from their library, or 3) take a picture (if they're not using a simulator)
+     
+     parameters - sender: the button that was pushed (the camera one, in this case)
+    */
+    @IBAction func camera2ButtonPushed(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        // Create an alert that pops up when the user clicks the camera button
+        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+        
+        // Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // Adds an option to take a picture using the camera (if possible)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        
+        // Adds an option to grab a picture from the photo library (if possible)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
+                imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(photoLibraryAction)
+        }
+        
+        // Present the alert
+        present(alertController, animated: true, completion: nil)
+        
+        // Set imageBeingSet to 1 to show that it's the SECOND photo being saved
+        imageBeingSet = 2
+    }
+    
+    
+    /**
+     Change the image view on the add page to the chosen image
+     
+     parameters - picker: chosing an image
+               info: information about if the user is done picking an image or not
+    */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        
+        // Keep track of the image that was chosen and then dismiss the image picking screen
+        if imageBeingSet == 1 {
+            imageView1.image = selectedImage
+        }
+        else if imageBeingSet == 2 {
+            imageView2.image = selectedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Write the image to the documents directory for future reference
+    */
+    func writeImage(imageView: UIImageView, imageNum: Int) {
+        // Get the Location of the documents directory
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
+        // Generate a file name using a UUID
+        let image1Name = "\(UUID().uuidString).jpg"
+        
+        // Set URL for the image
+        let imageFileURL = documents.appendingPathComponent(image1Name)
+        
+        // Get a Data instance using the image
+        if let photo = imageView.image, let data = photo.jpegData(compressionQuality: 1.0) {
+            do {
+                try data.write(to: imageFileURL)
+            } catch {
+                print("Error writing image data to disk \(error)")
+            }
+        }
+        
+        let imageFromDisk = UIImage(contentsOfFile: imageFileURL.path)
+        if imageNum == 1 {
+            imageLocation1 = imageFileURL.path
+        }
+        else if imageNum == 2 {
+            imageLocation2 = imageFileURL.path
+        }
     }
 }

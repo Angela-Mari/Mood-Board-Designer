@@ -1,6 +1,11 @@
 //
 //  BoardTableViewController.swift
 //  Mood-Board-Designer
+//  This program computes the display of the main screen of the app. Has functionality for deleting, adding, and rearanging board cells.
+//  CPSC 315-01, Fall 2020
+//  Final Project
+//  Sources:
+//      Adjusting row height in Main.storyboard not working: https://stackoverflow.com/questions/46519567/table-view-cell-row-height-doesnt-work
 //
 //  Created by Angela George on 11/29/20.
 //
@@ -9,47 +14,88 @@ import UIKit
 import CoreData
 
 class BoardTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Properties/IBOutlets
     
     @IBOutlet var tableView: UITableView!
-    var boards = [Board]() // Collection of boards (data set)
-
-    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var boards = [Board]()
+    
+    // MARK: - Load the View
+    
+    /**
+     Start the program when the view loads
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadBoards()
     }
     
+    // MARK: - Data Management (CRUD, Minus the U)
+    
+    /**
+     Save the boards to the database
+    */
     func saveBoards() {
-        // we want to save the context "to disk" (db)
+        // Save the context
         do {
-            try context.save() // like git commit
+            try context.save()
         }
         catch {
-            print("Error saving Boards \(error)")
+            print("Error saving boards \(error)")
         }
         tableView.reloadData()
     }
     
     /**
-        Read of CRUD, loads boards from disk
-     */
+     Fetches boards from Core Data
+     When the app starts, all the boards stored in Core Data are loaded and displayed
+    */
     func loadBoards() {
-        // we need to make a "request" to get the Category objects
-        // via the persistent container
         let request: NSFetchRequest<Board> = Board.fetchRequest()
-        // with a sql SELECT statement we usually specify a WHERE clause if we want to filter rows from the table we are selecting from
-        // if we want to filter, we need to add a "predicate" to our request... we will do this later for Items
         do {
             boards = try context.fetch(request)
         }
         catch {
-            print("Error loading Boards \(error)")
+            print("Error loading boards \(error)")
         }
         tableView.reloadData()
+    }
+
+    /**
+     Deletes a board
+     This method is called when the user deletes a board in the table
+     
+     parameter - tableView: the view in question
+              editingStyle: how we wish to edit the data source
+              indexPath: the row being deleted
+     */
+    func deleteBoards(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the board at indexPath.row from the context
+            context.delete(boards[indexPath.row])
+            boards.remove(at: indexPath.row)
+            
+            // Show the user that the row is being deleted
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // Save the context so the delete action persists
+            saveBoards()
+        }
+    }
+    
+    // MARK: - Display Board Info in Cells
+    
+    /**
+     Resize the cell height (as the field in Main.storyboard isn't doing it)
+     
+     parameters - tableView: the view in question
+               indexPath: row index of the cell being resized
+     returns - cell height as a CGIFloat
+    */
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
     
     /**
@@ -74,59 +120,64 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
      returns - the desired cell
     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let board = boards[row]
-        
-        // now we need a DogTableViewCell!!
+        // Get a refrerence to an object of type BoardTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
-        // we don't need to create a "new cell" for each our dogs and here is why
-        // lets say there are 10000 dogs in our dogs array
-        // we don't need 100000 cells because there won't be 10000 cells display at one time in our table view
+        let board = boards[indexPath.row]
         
-        cell.update(with: board)
-        
-
-        // Save Boards values in a Board
+        // Save Board values in a BoardObject (after unwrapping them all)
         // For BoardTableViewCell formatting
-        /*if let titleUnwrapped = board.title, let imageNameUnwrapped = board.imageName {
-            let boardObject = Board(title: titleUnwrapped, imageName: imageNameUnwrapped)
+        if let titleUnwrapped = board.title, let image1NameUnwrapped = board.image1Name, let image2NameUnwrapped = board.image2Name {
+            let boardObject = BoardObject(layoutNumber: Int(board.layoutNumber), title: titleUnwrapped, image1Name: image1NameUnwrapped, image2Name: image2NameUnwrapped)
             cell.update(with: boardObject)
-        }*/
-
-        cell.showsReorderControl = true
-
+        }
         
         return cell
     }
     
+    // MARK: - Edit Mode (Delete and Move Boards)
     
-    // Edit mode (rearrange and delete) (navigation bar)????
-
-    // Add a new board (navigation bar)
-    @IBAction func unwindToInitialVC(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
-            if identifier == "saveUnwind" {
-                print("saveUnwind")
-                if let addBoard =
-                    segue.source as? AddBoardViewController {
-                    if let board = addBoard.boardOptional {
-                        print("back in boardTableVC")
-                        print(board)
-                        boards.append(board)
-                        saveBoards()
-                    }
-                    tableView.reloadData()
-                }
-            }
-        }
-        
+    /**
+     Toggle edit mode (rearanging cells around)
+     
+     parameters - sender: the bar button being pressed
+    */
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        // Toggle editing mode
+        let newEditingMode = !tableView.isEditing
+        tableView.setEditing(newEditingMode, animated: true)
     }
-
+    
+    /**
+     Moving rows around in edit mode
+     
+     parameter - tableView: the view in question
+              sourceIndexPath: starting index path
+              destinationIndexPath: finishing index path
+    */
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // Update our data structure (boards array, in this case)
+        let board = boards.remove(at: sourceIndexPath.row)
+        boards.insert(board, at: destinationIndexPath.row)
+        
+        // Refresh the table view
+        tableView.reloadData()
+    }
+    
+    /**
+     Deleting a row in edit mode
+     
+     parameter - tableView: the view in question
+              editingStyle: how we wish to edit the data source
+              indexPath: the row being deleted
+    */
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        deleteBoards(tableView, commit: editingStyle, forRowAt: indexPath)
+    }
     
     // MARK: - Segues
     
     /**
-     Perform a segue to either the detail or layout choosing page, sending information with it
+     Perform a segue to either the detail or add page, sending information with it
      
      parameters - segue: the segue being performed
                sender: may or may not be triggered
@@ -134,23 +185,21 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "DetailSegue" {
-                // TODO: Implement (and switch it from PA6/7 to this project :) )
-                /*if let tripDetailVC = segue.destination as? TripDetailViewController {
+                if let boardDetailVC = segue.destination as? BoardDetailViewController {
                     // Get the indexPath for the row the user clicked on
-                    // Get the trip at that row
-                    // Pass the trip into detailDetailVC
+                    // Get the board at that row
+                    // Pass the board into detailDetailVC
                     if let indexPath = tableView.indexPathForSelectedRow {
-                        let trip = trips[indexPath.row]
-                        tripDetailVC.tripOptional = trip
-                        tripDetailVC.tripNumber = indexPath[1] + 1
-                        tripDetailVC.totalNumTrips = trips.count
+                        let board = boards[indexPath.row]
+                        boardDetailVC.boardOptional = board
                     }
-                }*/
+                }
             }
             else if identifier == "AddSegue" {
-                if let chooseBoardLayoutVC = segue.destination as? ChooseBoardLayoutViewController {
+                if let addBoardVC = segue.destination as? AddBoardViewController {
                     if let indexPath = tableView.indexPathForSelectedRow {
                         tableView.deselectRow(at: indexPath, animated: true)
+                        //addBoardVC.totalNumBoards = boards.count + 1
                     }
                 }
             }
@@ -159,26 +208,35 @@ class BoardTableViewController: UIViewController, UITableViewDataSource, UITable
     
     /**
      Segue back to the main screen when the save button is pressed on the add screen
-     Add the new trip to the data source
+     Add the new board to the data source
      
      parameters - segue: the segue being performed
     */
-    // Found in the file with this same name on the main branch
-   /* @IBAction func unwindToTripTableViewController(segue: UIStoryboardSegue) {
+    @IBAction func unwindToBoardTableViewController(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
-            if identifier == "saveUnwind" {
-                print("saveUnwind")
-                if let addBoard =
-                    segue.source as? Layout1ViewController {
-                    if let board = addBoard.boardOptional {
-                        print("back in boardTableVC")
-                        print(board)
-                        boards.append(board)
-                        saveBoards()
+            if identifier == "SaveUnwindSegue" {
+                if let boardDetailVC = segue.source as? AddBoardViewController {
+                    if let board = boardDetailVC.boardOptional {
+                        // Get the currently selected index path
+                        if let indexPath = tableView.indexPathForSelectedRow {
+                            // Not needed for this, but can be used if we wanted to edit details
+                            //boards[indexPath.row] = board
+                        }
+                        else { // Unwinding from an AddSegue
+                            // Add the new board to the boards array
+                            // Make a Board using context
+                            let newBoard = Board(context: self.context)
+                            newBoard.layoutNumber = Int16(board.layoutNumber)
+                            newBoard.title = board.title
+                            newBoard.image1Name = board.image1Name
+                            newBoard.image2Name = board.image2Name
+                            boards.append(newBoard)
+                        }
+                        // Force update the table view
+                        self.saveBoards()
                     }
-                    tableView.reloadData()
                 }
             }
         }
-    }*/
+    }
 }
