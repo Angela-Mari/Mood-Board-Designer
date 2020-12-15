@@ -11,8 +11,7 @@ import UIKit
 class TestDetailViewController: UIViewController {
 
     let testImage = UIImage(named: "test3.jpeg")
-   
-    
+    let testImage2 = UIImage(named: "test2.jpeg")
     
     @IBAction func displayWidget(_ sender: UIButton) {
         
@@ -21,13 +20,18 @@ class TestDetailViewController: UIViewController {
         print("saving moodboard config")
         
         
-        
+        //convert one image
         let imageData = testImage?.jpegData(compressionQuality: 1)
-        let imageBase64String = imageData?.base64EncodedString()
+        let imageBase64String1 = imageData?.base64EncodedString()
         
-        print(imageBase64String ?? "nope")
+        //convert second image
+        let imageData2 = testImage2?.jpegData(compressionQuality: 1)
+        let imageBase64String2 = imageData2?.base64EncodedString()
         
-        let mood = Mood(title: "write images...", image1: imageBase64String ?? "placeholder", image2: "test2")
+        
+        print(imageBase64String1 ?? "nope")
+        
+        let mood = Mood(title: "write images...", image1: imageBase64String1 ?? "placeholder", image2: imageBase64String2 ?? "placeholder")
         
         // Obtaining the Location of the Documents Directory
 //        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.MoodBoardDesignerGroup")

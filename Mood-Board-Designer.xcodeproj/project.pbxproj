@@ -14,7 +14,6 @@
 		9C72B1662585925B0079BC63 /* MoodWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C72B1582585925B0079BC63 /* MoodWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9C72B17B258598220079BC63 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17A258598220079BC63 /* Mood.swift */; };
 		9C72B17C258598220079BC63 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17A258598220079BC63 /* Mood.swift */; };
-		9C72B1802585999B0079BC63 /* MoodWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */; };
 		9C72B1842585B72E0079BC63 /* TestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72B1832585B72E0079BC63 /* TestDetailViewController.swift */; };
 		9C86896825741E860065799B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896725741E860065799B /* AppDelegate.swift */; };
 		9C86896A25741E860065799B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86896925741E860065799B /* SceneDelegate.swift */; };
@@ -64,7 +63,6 @@
 		9C72B16D2585927D0079BC63 /* Mood-Board-Designer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mood-Board-Designer.entitlements"; sourceTree = "<group>"; };
 		9C72B170258592840079BC63 /* MoodWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoodWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9C72B17A258598220079BC63 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
-		9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidgetView.swift; sourceTree = "<group>"; };
 		9C72B1832585B72E0079BC63 /* TestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailViewController.swift; sourceTree = "<group>"; };
 		9C86896425741E860065799B /* Mood-Board-Designer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood-Board-Designer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C86896725741E860065799B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				9C72B15F2585925B0079BC63 /* MoodWidget.swift */,
 				9C72B1612585925B0079BC63 /* Assets.xcassets */,
 				9C72B1632585925B0079BC63 /* Info.plist */,
-				9C72B17F2585999B0079BC63 /* MoodWidgetView.swift */,
 			);
 			path = MoodWidget;
 			sourceTree = "<group>";
@@ -276,7 +273,6 @@
 			files = (
 				9C72B17C258598220079BC63 /* Mood.swift in Sources */,
 				9C72B1602585925B0079BC63 /* MoodWidget.swift in Sources */,
-				9C72B1802585999B0079BC63 /* MoodWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
